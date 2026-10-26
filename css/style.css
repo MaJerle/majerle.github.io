@@ -1,0 +1,392 @@
+/* Palette: graphite band, silver accent, warm-neutral greys */
+:root {
+  --bg: #f5f5f4;
+  --surface: #ffffff;
+  --ink: #1c1c1e;
+  --muted: #5b5b60;
+  --rule: #dcdcdc;
+  --band: #2b2b2e;
+  --band-top: #3a3a3e;
+  --band-bottom: #1f1f22;
+  --band-ink: #f4f4f5;
+  --band-muted: #b9b9be;
+  --band-accent: #a8a8ad;   /* rule and ring on the graphite band */
+  --accent: #3f3f46;        /* link underlines, stars on light background */
+  --chip: rgb(28 28 30 / 6%);
+  --focus: #52525b;
+  --logo-filter: none;      /* logo artwork is black on transparent */
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --measure: 52rem;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121214;
+    --surface: #1b1b1e;
+    --ink: #ececee;
+    --muted: #a1a1a8;
+    --rule: #2e2e33;
+    --band-top: #2a2a2e;
+    --band-bottom: #161618;
+    --accent: #d4d4d8;
+    --chip: rgb(236 236 238 / 8%);
+    --focus: #d4d4d8;
+    --logo-filter: invert(1);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #121214;
+  --surface: #1b1b1e;
+  --ink: #ececee;
+  --muted: #a1a1a8;
+  --rule: #2e2e33;
+  --band-top: #2a2a2e;
+  --band-bottom: #161618;
+  --accent: #d4d4d8;
+  --chip: rgb(236 236 238 / 8%);
+  --focus: #d4d4d8;
+  --logo-filter: invert(1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  color: var(--ink);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Hero ----------
+   Graphite band with the portrait sitting on the silver rule on wide screens. */
+.hero {
+  background: var(--band);
+  background-image: linear-gradient(160deg, var(--band-top), var(--band-bottom));
+  color: var(--band-ink);
+  border-bottom: 6px solid var(--band-accent);
+  padding-block: clamp(2.25rem, 7vw, 4.5rem) 2.25rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);   /* let the logo shrink on phones */
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.hero-text {
+  width: 100%;
+}
+
+.hero-photo {
+  width: 8rem;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--band-accent);
+  background: var(--band);
+}
+
+.hero-name {
+  margin: 0;
+  line-height: 1;
+}
+
+/* The logo artwork is black; the band is always dark, so always invert it. */
+.hero-logo {
+  display: block;
+  width: min(24rem, 100%);
+  height: auto;
+  filter: invert(1);
+}
+
+.hero-role {
+  margin: 1rem 0 0;
+  font-size: 1.125rem;
+  color: var(--band-muted);
+  max-width: 34rem;
+}
+
+.hero-role a {
+  color: var(--band-ink);
+}
+
+.hero a {
+  text-decoration-color: var(--band-accent);
+}
+
+.hero a:focus-visible {
+  outline-color: var(--band-accent);
+}
+
+.hero-links ul {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 46rem) {
+  .hero {
+    padding-bottom: 2.75rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    align-items: end;
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-photo {
+    grid-column: 2;
+    grid-row: 1;
+    width: 13rem;
+    margin-bottom: -6.5rem;            /* drop through the silver rule */
+    border: 6px solid var(--bg);       /* cut-out ring in the page colour */
+    box-shadow: 0 0 0 4px var(--band-accent);
+    position: relative;
+  }
+}
+
+/* ---------- Sections ---------- */
+main {
+  padding-block: 1.5rem 3rem;
+}
+
+main section {
+  padding-block: 2rem 0.5rem;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 750;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.about p {
+  max-width: 34rem;   /* clears the portrait on wide screens */
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1rem;
+}
+
+.section-intro {
+  color: var(--muted);
+}
+
+.stars-total {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Repository lists ----------
+   One grid per list; rows use subgrid so names, stars and docs links line up
+   in columns whatever the name length. */
+.repo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr auto auto;
+  column-gap: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.repo {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.repo-name {
+  grid-column: 1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.repo-name:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.repo-desc {
+  grid-column: 2;
+  margin: 0;
+  color: var(--muted);
+}
+
+.repo-stars {
+  grid-column: 3;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Star pinned left, number pinned right; all pills share the column width. */
+.repo-stars:not(:empty) {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.05rem 0.6rem;
+  border-radius: 999px;
+  background: var(--chip);
+}
+
+.repo-stars-icon {
+  opacity: 0.8;
+}
+
+.repo-docs {
+  grid-column: 4;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* Phone: name, stars and docs on the first line, description below it. */
+@media (max-width: 36rem) {
+  .repo-list {
+    grid-template-columns: 1fr auto auto;
+    column-gap: 1rem;
+  }
+
+  .repo-name {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 1.125rem;
+  }
+
+  .repo-stars {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .repo-docs {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .repo-desc {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0.15rem;
+    color: var(--ink);
+  }
+}
+
+.email {
+  font-size: 1.25rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9375rem;
+  padding-block: 1.5rem;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  width: 2rem;
+  height: 2rem;
+  filter: var(--logo-filter);
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
