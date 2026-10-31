@@ -10,13 +10,15 @@
   --band-bottom: #1f1f22;
   --band-ink: #f4f4f5;
   --band-muted: #b9b9be;
-  --band-accent: #a8a8ad;   /* rule and ring on the graphite band */
-  --accent: #3f3f46;        /* link underlines, stars on light background */
+  --band-accent: #a8a8ad; /* rule and ring on the graphite band */
+  --accent: #3f3f46; /* link underlines, stars on light background */
   --chip: rgb(28 28 30 / 6%);
   --focus: #52525b;
-  --logo-filter: none;      /* logo artwork is black on transparent */
+  --logo-filter: none; /* logo artwork is black on transparent */
 
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
   --measure: 52rem;
   color-scheme: light dark;
 }
@@ -115,7 +117,11 @@ a:focus-visible {
    Graphite band with the portrait sitting on the silver rule on wide screens. */
 .hero {
   background: var(--band);
-  background-image: linear-gradient(160deg, var(--band-top), var(--band-bottom));
+  background-image: linear-gradient(
+    160deg,
+    var(--band-top),
+    var(--band-bottom)
+  );
   color: var(--band-ink);
   border-bottom: 6px solid var(--band-accent);
   padding-block: clamp(2.25rem, 7vw, 4.5rem) 2.25rem;
@@ -123,7 +129,7 @@ a:focus-visible {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);   /* let the logo shrink on phones */
+  grid-template-columns: minmax(0, 1fr); /* let the logo shrink on phones */
   gap: 1.25rem;
   justify-items: start;
 }
@@ -204,8 +210,8 @@ a:focus-visible {
     grid-column: 2;
     grid-row: 1;
     width: 13rem;
-    margin-bottom: -6.5rem;            /* drop through the silver rule */
-    border: 6px solid var(--bg);       /* cut-out ring in the page colour */
+    margin-bottom: -6.5rem; /* drop through the silver rule */
+    border: 6px solid var(--bg); /* cut-out ring in the page colour */
     box-shadow: 0 0 0 4px var(--band-accent);
     position: relative;
   }
@@ -232,7 +238,7 @@ p {
 }
 
 .about p {
-  max-width: 34rem;   /* clears the portrait on wide screens */
+  max-width: 34rem; /* clears the portrait on wide screens */
 }
 
 .section-head {
@@ -389,4 +395,14 @@ p {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* Text for search engines and screen readers, hidden visually (matches the logo) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

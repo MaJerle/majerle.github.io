@@ -21,7 +21,7 @@
     <meta property="og:site_name" content="Tilen Majerle">
     <meta property="og:title" content="Tilen Majerle - STM32 &amp; embedded C libraries">
     <meta property="og:description"
-        content="STM32 product marketing at STMicroelectronics. Author of lightweight C libraries for microcontrollers: LwRB, LwESP, LwJSON, LwGPS, LwMEM and more.">
+        content="STM32 Product marketing at STMicroelectronics. Author of lightweight C libraries for microcontrollers: LwRB, LwESP, LwJSON, LwGPS, LwMEM and more.">
     <meta property="og:url" content="https://majerle.eu/">
     <meta property="og:locale" content="en_US">
     <meta property="profile:first_name" content="Tilen">
@@ -35,11 +35,13 @@
     <meta name="twitter:image:alt" content="Tilen Majerle logo">
     <meta name="twitter:title" content="Tilen Majerle - STM32 &amp; embedded C libraries">
     <meta name="twitter:description"
-        content="Senior Manager, STM32 Mainstream Product marketing at STMicroelectronics. Author of lightweight C libraries for microcontrollers: LwRB, LwESP, LwJSON, LwGPS, LwMEM and more.">
+        content="Senior Manager, STM32 Mainstream Product Marketing at STMicroelectronics. Author of lightweight C libraries for microcontrollers: LwRB, LwESP, LwJSON, LwGPS, LwMEM and more.">
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="me" href="https://github.com/MaJerle">
     <link rel="me" href="https://www.linkedin.com/in/tilen-majerle-85a6977/">
+
+    <link rel="sitemap" type="application/xml" href="https://majerle.eu/sitemap.xml">
 
     <link rel="preconnect" href="https://api.github.com" crossorigin>
 
@@ -53,18 +55,27 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://majerle.eu/#website",
+        "url": "https://majerle.eu/",
+        "name": "Tilen Majerle",
+        "alternateName": "majerle.eu",
+        "publisher": { "@id": "https://majerle.eu/#person" }
+      },
+      {
         "@type": "ProfilePage",
         "@id": "https://majerle.eu/#page",
         "url": "https://majerle.eu/",
         "name": "Tilen Majerle - personal website",
         "inLanguage": "en",
-        "dateModified": "2026-11-01",
+        "isPartOf": { "@id": "https://majerle.eu/#website" },
         "mainEntity": { "@id": "https://majerle.eu/#person" }
       },
       {
         "@type": "Person",
         "@id": "https://majerle.eu/#person",
         "name": "Tilen Majerle",
+        "alternateName": "Tilen MAJERLE",
         "givenName": "Tilen",
         "familyName": "Majerle",
         "url": "https://majerle.eu/",
@@ -131,7 +142,8 @@
                 fetchpriority="high" decoding="async">
             <div class="hero-text">
                 <h1 class="hero-name">
-                    <img class="hero-logo" src="img/logo-full.png" alt="Tilen Majerle" width="800" height="385">
+                    <img class="hero-logo" src="img/logo-full.png" alt="" width="800" height="385">
+                    <span class="visually-hidden" style="display: none;">Tilen Majerle</span>
                 </h1>
                 <p class="hero-role">
                     Senior Manager, Product Marketing<br />STM32 Mainstream microcontrollers at
@@ -151,7 +163,7 @@
     <main id="main">
         <section class="wrap about" aria-labelledby="about-title">
             <h2 id="about-title">About</h2>
-            <p>Embedded systems enthusiast and active STM32 application developer.</p>
+            <p>Tilen Majerle, an embedded systems enthusiast and active STM32 application developer.</p>
             <p>Over the years, I have written many small, dependency-free C libraries for microcontrollers: parsers,
                 buffers, memory managers and protocol stacks that are easy to use and fit on devices with only a few
                 kilobytes of RAM.</p>
@@ -364,7 +376,7 @@
     <footer class="footer">
         <div class="wrap footer-row">
             <img class="footer-logo" src="img/logo-mark.svg" alt="" width="32" height="32">
-            <p>© 2026 Tilen Majerle. All rights reserved.</p>
+            <p>© 2026 <a href="https://majerle.eu/">Tilen Majerle</a>. All rights reserved.</p>
         </div>
     </footer>
 </body>
