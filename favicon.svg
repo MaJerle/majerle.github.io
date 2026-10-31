@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="150 149 819 819">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      circle { fill: #fff; }
+      g { fill: #000; }
+    }
+  </style>
   <circle cx="559.5" cy="558.5" r="409.5" fill="#000"/>
   <g fill="#fff">
     <polygon points="368,593 337,593 314,688 346,688"/>
